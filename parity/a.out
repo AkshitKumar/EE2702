@@ -1,0 +1,76 @@
+#! /opt/local/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x7fc313d00110 .scope module, "tb_parity" "tb_parity" 2 10;
+ .timescale 0 0;
+v0x7fc313d182f0_0 .var "A", 0 0;
+v0x7fc313d18390_0 .var "B", 0 0;
+v0x7fc313d18410_0 .var "C", 0 0;
+v0x7fc313d184d0_0 .var "D", 0 0;
+v0x7fc313d18570_0 .net "P", 0 0, L_0x7fc313d18820; 1 drivers
+S_0x7fc313d080f0 .scope module, "top" "parity" 2 33, 2 1, S_0x7fc313d00110;
+ .timescale 0 0;
+L_0x7fc313d18620 .functor XOR 1, v0x7fc313d182f0_0, v0x7fc313d18390_0, C4<0>, C4<0>;
+L_0x7fc313d18740 .functor XOR 1, v0x7fc313d18410_0, v0x7fc313d184d0_0, C4<0>, C4<0>;
+L_0x7fc313d18820 .functor XOR 1, L_0x7fc313d18620, L_0x7fc313d18740, C4<0>, C4<0>;
+v0x7fc313d00d10_0 .net "A", 0 0, v0x7fc313d182f0_0; 1 drivers
+v0x7fc313d17f40_0 .net "B", 0 0, v0x7fc313d18390_0; 1 drivers
+v0x7fc313d17fd0_0 .net "C", 0 0, v0x7fc313d18410_0; 1 drivers
+v0x7fc313d18050_0 .net "D", 0 0, v0x7fc313d184d0_0; 1 drivers
+v0x7fc313d180e0_0 .alias "P", 0 0, v0x7fc313d18570_0;
+v0x7fc313d181a0_0 .net *"_s0", 0 0, L_0x7fc313d18620; 1 drivers
+v0x7fc313d18230_0 .net *"_s2", 0 0, L_0x7fc313d18740; 1 drivers
+    .scope S_0x7fc313d00110;
+T_0 ;
+    %vpi_call 2 16 "$monitor", "A=%b B=%b C=%b D=%b \011 P=%b", v0x7fc313d182f0_0, v0x7fc313d18390_0, v0x7fc313d18410_0, v0x7fc313d184d0_0, v0x7fc313d18570_0;
+    %set/v v0x7fc313d182f0_0, 0, 1;
+    %set/v v0x7fc313d18390_0, 0, 1;
+    %set/v v0x7fc313d18410_0, 0, 1;
+    %set/v v0x7fc313d184d0_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0x7fc313d182f0_0, 0, 1;
+    %set/v v0x7fc313d18390_0, 0, 1;
+    %set/v v0x7fc313d18410_0, 0, 1;
+    %set/v v0x7fc313d184d0_0, 1, 1;
+    %delay 5, 0;
+    %set/v v0x7fc313d182f0_0, 0, 1;
+    %set/v v0x7fc313d18390_0, 0, 1;
+    %set/v v0x7fc313d18410_0, 1, 1;
+    %set/v v0x7fc313d184d0_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0x7fc313d182f0_0, 0, 1;
+    %set/v v0x7fc313d18390_0, 0, 1;
+    %set/v v0x7fc313d18410_0, 1, 1;
+    %set/v v0x7fc313d184d0_0, 1, 1;
+    %delay 5, 0;
+    %set/v v0x7fc313d182f0_0, 0, 1;
+    %set/v v0x7fc313d18390_0, 1, 1;
+    %set/v v0x7fc313d18410_0, 0, 1;
+    %set/v v0x7fc313d184d0_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0x7fc313d182f0_0, 0, 1;
+    %set/v v0x7fc313d18390_0, 1, 1;
+    %set/v v0x7fc313d18410_0, 0, 1;
+    %set/v v0x7fc313d184d0_0, 1, 1;
+    %delay 5, 0;
+    %set/v v0x7fc313d182f0_0, 0, 1;
+    %set/v v0x7fc313d18390_0, 1, 1;
+    %set/v v0x7fc313d18410_0, 1, 1;
+    %set/v v0x7fc313d184d0_0, 0, 1;
+    %delay 5, 0;
+    %set/v v0x7fc313d182f0_0, 0, 1;
+    %set/v v0x7fc313d18390_0, 1, 1;
+    %set/v v0x7fc313d18410_0, 1, 1;
+    %set/v v0x7fc313d184d0_0, 1, 1;
+    %delay 5, 0;
+    %vpi_call 2 30 "$finish";
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 3;
+    "N/A";
+    "<interactive>";
+    "parity.v";
