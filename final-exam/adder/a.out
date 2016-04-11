@@ -1,0 +1,83 @@
+#! /opt/local/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x7ff9c3400590 .scope module, "adder_tb" "adder_tb" 2 1;
+ .timescale 0 0;
+v0x7ff9c34186d0_0 .var "A", 0 0;
+v0x7ff9c3418770_0 .var "B", 0 0;
+v0x7ff9c34187f0_0 .var "Cin", 0 0;
+v0x7ff9c3418870_0 .net "Cout", 0 0, L_0x7ff9c3418e80; 1 drivers
+v0x7ff9c3418910_0 .net "Sum", 0 0, L_0x7ff9c3418ae0; 1 drivers
+S_0x7ff9c3400670 .scope module, "uut" "adder" 2 9, 3 1, S_0x7ff9c3400590;
+ .timescale 0 0;
+L_0x7ff9c34189c0 .functor XOR 1, v0x7ff9c34186d0_0, v0x7ff9c3418770_0, C4<0>, C4<0>;
+L_0x7ff9c3418ae0 .functor XOR 1, L_0x7ff9c34189c0, v0x7ff9c34187f0_0, C4<0>, C4<0>;
+L_0x7ff9c3418c00 .functor XOR 1, v0x7ff9c34186d0_0, v0x7ff9c3418770_0, C4<0>, C4<0>;
+L_0x7ff9c3418c60 .functor AND 1, v0x7ff9c34187f0_0, L_0x7ff9c3418c00, C4<1>, C4<1>;
+L_0x7ff9c3418d20 .functor AND 1, v0x7ff9c34186d0_0, v0x7ff9c3418770_0, C4<1>, C4<1>;
+L_0x7ff9c3418e80 .functor OR 1, L_0x7ff9c3418c60, L_0x7ff9c3418d20, C4<0>, C4<0>;
+v0x7ff9c34064a0_0 .net "A", 0 0, v0x7ff9c34186d0_0; 1 drivers
+v0x7ff9c34181d0_0 .net "B", 0 0, v0x7ff9c3418770_0; 1 drivers
+v0x7ff9c3418260_0 .net "Cin", 0 0, v0x7ff9c34187f0_0; 1 drivers
+v0x7ff9c34182e0_0 .alias "Cout", 0 0, v0x7ff9c3418870_0;
+v0x7ff9c3418370_0 .alias "Sum", 0 0, v0x7ff9c3418910_0;
+v0x7ff9c3418430_0 .net *"_s0", 0 0, L_0x7ff9c34189c0; 1 drivers
+v0x7ff9c34184c0_0 .net *"_s4", 0 0, L_0x7ff9c3418c00; 1 drivers
+v0x7ff9c3418580_0 .net *"_s6", 0 0, L_0x7ff9c3418c60; 1 drivers
+v0x7ff9c3418600_0 .net *"_s8", 0 0, L_0x7ff9c3418d20; 1 drivers
+    .scope S_0x7ff9c3400590;
+T_0 ;
+    %set/v v0x7ff9c34186d0_0, 0, 1;
+    %set/v v0x7ff9c3418770_0, 0, 1;
+    %set/v v0x7ff9c34187f0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x7ff9c34186d0_0, 0, 1;
+    %set/v v0x7ff9c3418770_0, 1, 1;
+    %set/v v0x7ff9c34187f0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x7ff9c34186d0_0, 0, 1;
+    %set/v v0x7ff9c3418770_0, 0, 1;
+    %set/v v0x7ff9c34187f0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x7ff9c34186d0_0, 1, 1;
+    %set/v v0x7ff9c3418770_0, 1, 1;
+    %set/v v0x7ff9c34187f0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x7ff9c34186d0_0, 1, 1;
+    %set/v v0x7ff9c3418770_0, 0, 1;
+    %set/v v0x7ff9c34187f0_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x7ff9c34186d0_0, 1, 1;
+    %set/v v0x7ff9c3418770_0, 0, 1;
+    %set/v v0x7ff9c34187f0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x7ff9c34186d0_0, 0, 1;
+    %set/v v0x7ff9c3418770_0, 1, 1;
+    %set/v v0x7ff9c34187f0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x7ff9c34186d0_0, 0, 1;
+    %set/v v0x7ff9c3418770_0, 0, 1;
+    %set/v v0x7ff9c34187f0_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x7ff9c34186d0_0, 0, 1;
+    %set/v v0x7ff9c3418770_0, 1, 1;
+    %set/v v0x7ff9c34187f0_0, 0, 1;
+    %delay 10, 0;
+    %vpi_call 2 31 "$finish";
+    %end;
+    .thread T_0;
+    .scope S_0x7ff9c3400590;
+T_1 ;
+    %vpi_call 2 35 "$dumpfile", "full_adder.vcd";
+    %vpi_call 2 36 "$dumpvars";
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "adder_tb.v";
+    "adder.v";
