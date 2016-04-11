@@ -1,0 +1,68 @@
+#! /opt/local/bin/vvp
+:ivl_version "0.9.7 " "(v0_9_7)";
+:vpi_time_precision + 0;
+:vpi_module "system";
+:vpi_module "v2005_math";
+:vpi_module "va_math";
+S_0x7ffb734011d0 .scope module, "mux_tb" "mux_tb" 2 1;
+ .timescale 0 0;
+v0x7ffb73505270_0 .var "A", 0 0;
+v0x7ffb73505310_0 .var "B", 0 0;
+v0x7ffb735053b0_0 .net "m_out", 0 0, L_0x7ffb73505510; 1 drivers
+v0x7ffb73505470_0 .var "select", 0 0;
+S_0x7ffb73404ef0 .scope module, "uut" "mux" 2 9, 3 1, S_0x7ffb734011d0;
+ .timescale 0 0;
+v0x7ffb73400650_0 .net "A", 0 0, v0x7ffb73505270_0; 1 drivers
+v0x7ffb73600000_0 .net "B", 0 0, v0x7ffb73505310_0; 1 drivers
+v0x7ffb73504f20_0 .alias "m_out", 0 0, v0x7ffb735053b0_0;
+v0x7ffb735051f0_0 .net "select", 0 0, v0x7ffb73505470_0; 1 drivers
+L_0x7ffb73505510 .functor MUXZ 1, v0x7ffb73505310_0, v0x7ffb73505270_0, v0x7ffb73505470_0, C4<>;
+    .scope S_0x7ffb734011d0;
+T_0 ;
+    %set/v v0x7ffb73505270_0, 0, 1;
+    %set/v v0x7ffb73505310_0, 0, 1;
+    %set/v v0x7ffb73505470_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x7ffb73505270_0, 0, 1;
+    %set/v v0x7ffb73505310_0, 0, 1;
+    %set/v v0x7ffb73505470_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x7ffb73505270_0, 0, 1;
+    %set/v v0x7ffb73505310_0, 1, 1;
+    %set/v v0x7ffb73505470_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x7ffb73505270_0, 0, 1;
+    %set/v v0x7ffb73505310_0, 1, 1;
+    %set/v v0x7ffb73505470_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x7ffb73505270_0, 1, 1;
+    %set/v v0x7ffb73505310_0, 0, 1;
+    %set/v v0x7ffb73505470_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x7ffb73505270_0, 1, 1;
+    %set/v v0x7ffb73505310_0, 0, 1;
+    %set/v v0x7ffb73505470_0, 1, 1;
+    %delay 10, 0;
+    %set/v v0x7ffb73505270_0, 1, 1;
+    %set/v v0x7ffb73505310_0, 1, 1;
+    %set/v v0x7ffb73505470_0, 0, 1;
+    %delay 10, 0;
+    %set/v v0x7ffb73505270_0, 1, 1;
+    %set/v v0x7ffb73505310_0, 1, 1;
+    %set/v v0x7ffb73505470_0, 1, 1;
+    %delay 10, 0;
+    %vpi_call 2 25 "$finish";
+    %end;
+    .thread T_0;
+    .scope S_0x7ffb734011d0;
+T_1 ;
+    %vpi_call 2 29 "$dumpfile", "mux.vcd";
+    %vpi_call 2 30 "$dumpvars";
+    %end;
+    .thread T_1;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "mux_tb.v";
+    "mux.v";
